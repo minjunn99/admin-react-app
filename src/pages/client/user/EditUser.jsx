@@ -5,7 +5,7 @@ import React from "react";
 
 const EditUser = () => {
     return (
-        <section>
+        <section className="flow">
             <h1>EditUser</h1>
         </section>
     );

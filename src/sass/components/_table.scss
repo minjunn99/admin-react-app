@@ -1,0 +1,46 @@
+.table {
+    display: table;
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+        & > * {
+            padding: 1rem;
+        }
+
+        & > *:first-child,
+        & > *:last-child {
+            width: max-content;
+        }
+
+        th {
+            text-align: left;
+            text-transform: capitalize;
+            color: var(--clr-white);
+            font-size: 1rem;
+        }
+    }
+
+    &--head {
+        background-color: var(--clr-green-500);
+    }
+
+    &--body {
+        & > * {
+            background-color: var(--clr-white);
+        }
+    }
+
+    &--button {
+        cursor: pointer;
+        display: inline-block;
+        padding: 0.5rem;
+        line-height: 1;
+        color: var(--clr-neutral-300);
+
+        &:hover {
+            color: var(--clr-neutral-500);
+        }
+    }
+}

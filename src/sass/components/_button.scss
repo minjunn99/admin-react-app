@@ -45,4 +45,16 @@ button {
             --clr-accent-outlined: var(--clr-neutral-100);
         }
     }
+
+    &[button-color="green"] {
+        --bg-accent: var(--clr-green-500);
+        --clr-accent: var(--clr-neutral-100);
+        --clr-accent-outlined: var(--clr-green-500);
+
+        &:hover {
+            --bg-accent: var(--clr-green-400);
+            --clr-accent: var(--clr-neutral-100);
+            --clr-accent-outlined: var(--clr-neutral-100);
+        }
+    }
 }

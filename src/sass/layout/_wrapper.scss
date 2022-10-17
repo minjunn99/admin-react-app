@@ -15,7 +15,19 @@
     }
 
     & section {
+        --flow-spacer: 1.5rem;
         flex: 1;
+        overflow: auto;
+        padding: 2rem 1rem;
         background-color: var(--clr-neutral-100);
+
+        @include mq(small) {
+            --flow-spacer: 2rem;
+            padding: 2rem;
+        }
+
+        h5 {
+            font-size: var(--fs-400);
+        }
     }
 }

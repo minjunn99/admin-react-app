@@ -5,7 +5,7 @@ import React from "react";
 
 const Dashboard = () => {
     return (
-        <section>
+        <section className="flow">
             <h1>Dashboard</h1>
         </section>
     );
