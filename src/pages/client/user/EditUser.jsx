@@ -5,9 +5,9 @@ import React from "react";
 
 const EditUser = () => {
     return (
-        <div>
+        <section>
             <h1>EditUser</h1>
-        </div>
+        </section>
     );
 };
 

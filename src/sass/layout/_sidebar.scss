@@ -1,0 +1,87 @@
+@use "../abstracts" as *;
+
+.sidebar {
+    &--container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: var(--bg-sidebar);
+        padding-block: 0.5rem;
+
+        @include mq(small) {
+            padding-block: 2rem;
+            padding-inline: 1rem;
+            border-top: 0px;
+        }
+    }
+
+    &--logo {
+        display: none;
+
+        @include mq(small) {
+            display: block;
+        }
+    }
+
+    &--menu {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        flex: 1;
+
+        @include mq(small) {
+            justify-content: start;
+            flex-direction: column;
+        }
+    }
+
+    &--item {
+        list-style: none;
+        cursor: pointer;
+    }
+
+    &--link {
+        display: flex;
+        gap: 0.25rem;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        color: var(--clr-neutral-200);
+        border-radius: 0.5rem;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        span {
+            text-transform: capitalize;
+            font-weight: 500;
+            font-size: var(--fs-300);
+        }
+
+        &:hover,
+        &.active {
+            background-color: var(--bg-link-active);
+            color: var(--clr-white);
+        }
+    }
+
+    &--button {
+        display: none;
+        color: var(--clr-neutral-200) !important;
+
+        @include mq(small) {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        &:hover {
+            color: var(--clr-white) !important;
+        }
+    }
+}

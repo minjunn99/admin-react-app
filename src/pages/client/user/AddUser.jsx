@@ -5,9 +5,9 @@ import React from "react";
 
 const AddUser = () => {
     return (
-        <div>
+        <section>
             <h1>AddUser</h1>
-        </div>
+        </section>
     );
 };
 

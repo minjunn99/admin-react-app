@@ -3,11 +3,17 @@
 :root {
     --ff-primary: "League Spartan";
 
+    --clr-white: #ffffff;
+    --clr-black: #000000;
+
     @each $color, $shade in $colors {
         @each $prop, $value in $shade {
             --clr-#{$color}-#{$prop}: #{$value};
         }
     }
+
+    --bg-sidebar: #034694;
+    --bg-link-active: #002e63;
 
     @each $screen-size, $property in $type-scale {
         @if $screen-size == small {
