@@ -1,0 +1,6 @@
+.signin {
+    &--container {
+        --flow-spacer: 2rem;
+        width: min(100% - 2rem, 20rem);
+    }
+}

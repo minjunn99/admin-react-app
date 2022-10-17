@@ -1,0 +1,31 @@
+.form {
+    &--group {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    &--input {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: thin solid;
+        border-color: var(--clr-neutral-300);
+    }
+
+    &--input:focus,
+    &--input:not(:placeholder-shown) {
+        border-color: var(--clr-neutral-500);
+    }
+
+    &--label {
+        color: var(--clr-neutral-300);
+        font-size: var(--fs-400);
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    &--input:focus + &--label,
+    &--input:not(:placeholder-shown) + &--label {
+        color: var(--clr-neutral-500);
+    }
+}

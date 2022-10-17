@@ -1,0 +1,48 @@
+.button,
+button {
+    cursor: pointer;
+    display: inline-block;
+    font-size: var(--fs-300);
+    font-weight: 500;
+    text-transform: capitalize;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg);
+    color: var(--clr);
+    border: thin solid var(--br);
+    border-radius: 0.5rem;
+    transition: background-color 350ms ease, color 350ms ease;
+
+    &[button-variant="contained"] {
+        --bg: var(--bg-accent, var(--clr-neutral-500));
+        --clr: var(--clr-accent, var(--clr-neutral-100));
+        --br: var(--bg);
+
+        &:hover {
+            --bg: var(--bg-accent, var(--clr-neutral-500));
+        }
+    }
+
+    &[button-variant="outlined"] {
+        --bg: transparent;
+        --clr: var(--clr-accent-outlined, var(--clr-neutral-500));
+        --br: var(--clr);
+
+        &:hover {
+            --bg: var(--bg-accent, var(--clr-neutral-500));
+            --clr: var(--clr-accent-outlined, var(--clr-neutral-100));
+            --br: var(--bg);
+        }
+    }
+
+    &[button-color="primary"] {
+        --bg-accent: var(--clr-primary-500);
+        --clr-accent: var(--clr-neutral-100);
+        --clr-accent-outlined: var(--clr-primary-500);
+
+        &:hover {
+            --bg-accent: var(--clr-primary-400);
+            --clr-accent: var(--clr-neutral-100);
+            --clr-accent-outlined: var(--clr-neutral-100);
+        }
+    }
+}
