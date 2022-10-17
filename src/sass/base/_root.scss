@@ -12,9 +12,6 @@
         }
     }
 
-    --bg-sidebar: #034694;
-    --bg-link-active: #002e63;
-
     @each $screen-size, $property in $type-scale {
         @if $screen-size == small {
             @each $prop, $value in $property {

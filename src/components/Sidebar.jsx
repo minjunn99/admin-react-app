@@ -2,7 +2,7 @@
 import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { BiHomeAlt } from "react-icons/bi";
-import { HiOutlineUser } from "react-icons/hi";
+import { HiOutlineUsers } from "react-icons/hi";
 import { MdLogout } from "react-icons/md";
 
 // Import component
@@ -28,19 +28,16 @@ const Sidebar = () => {
                     <li className="sidebar--item">
                         <NavLink className="sidebar--link" to="/" end>
                             <BiHomeAlt />
-                            <span>dashboard</span>
                         </NavLink>
                     </li>
                     <li className="sidebar--item">
                         <NavLink className="sidebar--link" to="/user">
-                            <HiOutlineUser />
-                            <span>người dùng</span>
+                            <HiOutlineUsers />
                         </NavLink>
                     </li>
                 </ul>
                 <button className="sidebar--button" onClick={handleClick}>
                     <MdLogout />
-                    <span>Đăng xuất</span>
                 </button>
             </div>
         </aside>
