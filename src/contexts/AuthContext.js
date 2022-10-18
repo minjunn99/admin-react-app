@@ -3,11 +3,12 @@ import React, { useContext, useState, useEffect } from "react";
 import {
     signInWithEmailAndPassword,
     signOut,
+    createUserWithEmailAndPassword,
     onAuthStateChanged,
 } from "firebase/auth";
 
 // Import components
-import { auth } from "../firebase/firebaseConfig";
+import { auth, otherAuth } from "../firebase/firebaseConfig";
 
 // Create context
 const AuthContext = React.createContext();
@@ -20,6 +21,10 @@ export function useAuth() {
 export const AuthProvider = ({ children }) => {
     // Children are mounted?
     const [loading, setLoading] = useState(true);
+
+    function signup(email, password) {
+        return createUserWithEmailAndPassword(otherAuth, email, password);
+    }
 
     function signin(email, password) {
         return signInWithEmailAndPassword(auth, email, password);
@@ -40,6 +45,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const value = {
+        signup,
         signin,
         signout,
     };

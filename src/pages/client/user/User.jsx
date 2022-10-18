@@ -18,7 +18,7 @@ const User = () => {
 
     const getUsers = async () => {
         const result = [];
-        const q = query(collection(db, "user"), where("role", "==", "user"));
+        const q = query(collection(db, "users"), where("role", "==", "user"));
         const qSnapshot = await getDocs(q);
 
         qSnapshot.forEach((doc) => {
@@ -73,7 +73,7 @@ const User = () => {
                     {users.length > 0 &&
                         users.map((user, index) => (
                             <tr key={user.id}>
-                                <td>{index}</td>
+                                <td>{index + 1}</td>
                                 <td>
                                     <div className="d-flex">
                                         <img
@@ -96,7 +96,7 @@ const User = () => {
                                 </td>
                                 <td>{user.displayName}</td>
                                 <td>{user.phoneNumber}</td>
-                                <td>Mar 27, 2016</td>
+                                <td>{user.createdAt}</td>
                                 <td>
                                     <Link
                                         to={`/edit_user/${user.id}`}
