@@ -20,3 +20,13 @@ input,
 button {
     outline: none;
 }
+
+[data-visible="false"] {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+[data-visible="true"] {
+    pointer-events: visible;
+    opacity: 1;
+}

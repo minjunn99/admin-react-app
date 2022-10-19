@@ -22,7 +22,10 @@ function App() {
                             <Route path="/" element={<Dashboard />} />
                             <Route path="/user" element={<User />} />
                             <Route path="/add_user" element={<AddUser />} />
-                            <Route path="/edit_user" element={<EditUser />} />
+                            <Route
+                                path="/edit_user/:userId"
+                                element={<EditUser />}
+                            />
                         </Route>
                     </Route>
                     <Route element={<AuthRoutes />}>

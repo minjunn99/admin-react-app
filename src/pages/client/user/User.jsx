@@ -1,7 +1,14 @@
 // Import library
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+    collection,
+    query,
+    where,
+    doc,
+    deleteDoc,
+    getDocs,
+} from "firebase/firestore";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBinLine } from "react-icons/ri";
 
@@ -14,7 +21,7 @@ const User = () => {
 
     useEffect(() => {
         getUsers();
-    }, []);
+    }, [users]);
 
     const getUsers = async () => {
         const result = [];
@@ -28,6 +35,11 @@ const User = () => {
         });
 
         setUsers(result);
+    };
+
+    const handleClick = async (id) => {
+        await deleteDoc(doc(db, "users", id));
+        getUsers();
     };
 
     if (!users) {
@@ -105,7 +117,10 @@ const User = () => {
                                     >
                                         <FiEdit />
                                     </Link>
-                                    <div className="table--button">
+                                    <div
+                                        className="table--button"
+                                        onClick={() => handleClick(user.id)}
+                                    >
                                         <RiDeleteBinLine />
                                     </div>
                                 </td>
