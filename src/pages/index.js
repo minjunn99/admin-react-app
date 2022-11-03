@@ -3,3 +3,6 @@ export { default as Dashboard } from "./client/Dashboard";
 export { default as User } from "./client/user/User";
 export { default as AddUser } from "./client/user/AddUser";
 export { default as EditUser } from "./client/user/EditUser";
+export { default as Product } from "./client/product/Product";
+export { default as AddProduct } from "./client/product/AddProduct";
+export { default as EditProduct } from "./client/product/EditProduct";

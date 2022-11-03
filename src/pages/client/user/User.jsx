@@ -63,71 +63,73 @@ const User = () => {
                     thêm khách hàng
                 </Link>
             </div>
-            <table className="table" style={{ width: "max(100%, 60rem)" }}>
-                <thead className="table--head">
-                    <tr>
-                        <th></th>
-                        <th>thông tin cơ bản</th>
-                        <th>tên hiển thị</th>
-                        <th>số điện thoại</th>
-                        <th>ngày tạo</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody className="table--body">
-                    {/* Nếu chưa có dữ liệu khách hàng */}
-                    {users.length === 0 && (
+            <div style={{ width: "100%", overflowX: "scroll" }}>
+                <table className="table" style={{ width: "max(100%, 60rem)" }}>
+                    <thead className="table--head">
                         <tr>
-                            <td colSpan={6}>Chưa có dữ liệu khách hàng!</td>
+                            <th></th>
+                            <th>thông tin cơ bản</th>
+                            <th>tên hiển thị</th>
+                            <th>số điện thoại</th>
+                            <th>ngày tạo</th>
+                            <th></th>
                         </tr>
-                    )}
-                    {/* Có dữ liệu khách hàng */}
-                    {users.length > 0 &&
-                        users.map((user, index) => (
-                            <tr key={user.id}>
-                                <td>{index + 1}</td>
-                                <td>
-                                    <div className="d-flex">
-                                        <img
-                                            style={{
-                                                width: "48px",
-                                                height: "48px",
-                                                borderRadius: "100%",
-                                                objectFit: "cover",
-                                            }}
-                                            src={user.photoURL}
-                                            alt={user.displayName}
-                                        />
-                                        <div>
-                                            <div className="fs-400 text--capitalize">
-                                                {user.fullName}
-                                            </div>
-                                            <p>{user.email}</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>{user.displayName}</td>
-                                <td>{user.phoneNumber}</td>
-                                <td>{user.createdAt}</td>
-                                <td>
-                                    <Link
-                                        to={`/edit_user/${user.id}`}
-                                        className="table--button"
-                                        style={{ marginRight: "0.25rem" }}
-                                    >
-                                        <FiEdit />
-                                    </Link>
-                                    <div
-                                        className="table--button"
-                                        onClick={() => handleClick(user.id)}
-                                    >
-                                        <RiDeleteBinLine />
-                                    </div>
-                                </td>
+                    </thead>
+                    <tbody className="table--body">
+                        {/* Nếu chưa có dữ liệu khách hàng */}
+                        {users.length === 0 && (
+                            <tr>
+                                <td colSpan={6}>Chưa có dữ liệu khách hàng!</td>
                             </tr>
-                        ))}
-                </tbody>
-            </table>
+                        )}
+                        {/* Có dữ liệu khách hàng */}
+                        {users.length > 0 &&
+                            users.map((user, index) => (
+                                <tr key={user.id}>
+                                    <td>{index + 1}</td>
+                                    <td>
+                                        <div className="d-flex">
+                                            <img
+                                                style={{
+                                                    width: "48px",
+                                                    height: "48px",
+                                                    borderRadius: "100%",
+                                                    objectFit: "cover",
+                                                }}
+                                                src={user.photoURL}
+                                                alt={user.displayName}
+                                            />
+                                            <div>
+                                                <div className="fs-400 text--capitalize">
+                                                    {user.fullName}
+                                                </div>
+                                                <p>{user.email}</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{user.displayName}</td>
+                                    <td>{user.phoneNumber}</td>
+                                    <td>{user.createdAt}</td>
+                                    <td>
+                                        <Link
+                                            to={`/edit_user/${user.id}`}
+                                            className="table--button"
+                                            style={{ marginRight: "0.25rem" }}
+                                        >
+                                            <FiEdit />
+                                        </Link>
+                                        <div
+                                            className="table--button"
+                                            onClick={() => handleClick(user.id)}
+                                        >
+                                            <RiDeleteBinLine />
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                    </tbody>
+                </table>
+            </div>
         </section>
     );
 };

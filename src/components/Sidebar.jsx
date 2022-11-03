@@ -4,6 +4,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { BiHomeAlt } from "react-icons/bi";
 import { HiOutlineUsers } from "react-icons/hi";
 import { MdLogout } from "react-icons/md";
+import { RiShoppingBag3Line } from "react-icons/ri";
 
 // Import component
 import { useAuth } from "../contexts/AuthContext";
@@ -33,6 +34,11 @@ const Sidebar = () => {
                     <li className="sidebar--item">
                         <NavLink className="sidebar--link" to="/user">
                             <HiOutlineUsers />
+                        </NavLink>
+                    </li>
+                    <li className="sidebar--item">
+                        <NavLink className="sidebar--link" to="/product">
+                            <RiShoppingBag3Line />
                         </NavLink>
                     </li>
                 </ul>

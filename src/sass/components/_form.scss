@@ -44,6 +44,30 @@
         }
     }
 
+    &--photos {
+        position: relative;
+        width: 8rem;
+        aspect-ratio: 1;
+        cursor: pointer;
+
+        span {
+            position: absolute;
+            top: 0.25rem;
+            right: 0.25rem;
+            color: var(--clr-neutral-500);
+            opacity: 0;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--clr-primary-500);
+            }
+        }
+
+        &:hover span {
+            opacity: 1;
+        }
+    }
+
     &--icon {
         position: absolute;
         top: 50%;
@@ -82,5 +106,21 @@
     &--input:focus + &--label,
     &--input:not(:placeholder-shown) + &--label {
         color: var(--clr-neutral-500);
+    }
+
+    &--button {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        background-color: transparent;
+        font-size: var(--fs-200);
+        border: thin solid;
+        color: var(--clr-neutral-300);
+        text-transform: capitalize;
+        font-weight: 500;
+        cursor: pointer;
+
+        &.active {
+            color: var(--clr-neutral-500);
+        }
     }
 }

@@ -10,7 +10,16 @@ import { AuthProvider } from "./contexts/AuthContext";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import AuthRoutes from "./routes/AuthRoutes";
 import Wrapper from "./container/Wrapper";
-import { Signin, Dashboard, User, AddUser, EditUser } from "./pages";
+import {
+    Signin,
+    Dashboard,
+    User,
+    AddUser,
+    EditUser,
+    Product,
+    AddProduct,
+    EditProduct,
+} from "./pages";
 
 function App() {
     return (
@@ -25,6 +34,15 @@ function App() {
                             <Route
                                 path="/edit_user/:userId"
                                 element={<EditUser />}
+                            />
+                            <Route path="/product" element={<Product />} />
+                            <Route
+                                path="/add_product"
+                                element={<AddProduct />}
+                            />
+                            <Route
+                                path="/edit_product/:productId"
+                                element={<EditProduct />}
                             />
                         </Route>
                     </Route>
