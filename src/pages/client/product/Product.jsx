@@ -1,17 +1,13 @@
 // Import library
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-    collection,
-    // doc,
-    // deleteDoc,
-    getDocs,
-} from "firebase/firestore";
+import { collection, doc, deleteDoc, getDocs } from "firebase/firestore";
+import { deleteObject, ref } from "firebase/storage";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 // Import component
-import { db } from "../../../firebase/firebaseConfig";
+import { db, storage } from "../../../firebase/firebaseConfig";
 import { Loading } from "../../../components";
 
 const Product = () => {
@@ -19,7 +15,7 @@ const Product = () => {
 
     useEffect(() => {
         getProducts();
-    }, [products]);
+    }, []);
 
     const getProducts = async () => {
         const result = [];
@@ -34,7 +30,18 @@ const Product = () => {
         setProducts(result);
     };
 
-    const handleClick = (productId) => {};
+    const deleteFileStorage = async (photo) => {
+        const delRef = ref(storage, photo);
+        deleteObject(delRef);
+    };
+
+    const handleClick = async (product) => {
+        const { id, photos } = product;
+        await Promise.all([...photos].map((photo) => deleteFileStorage(photo)));
+
+        await deleteDoc(doc(db, "products", id));
+        getProducts();
+    };
 
     if (!products) {
         return (
@@ -105,9 +112,7 @@ const Product = () => {
                                         </Link>
                                         <div
                                             className="table--button"
-                                            onClick={() =>
-                                                handleClick(product.id)
-                                            }
+                                            onClick={() => handleClick(product)}
                                         >
                                             <RiDeleteBinLine />
                                         </div>

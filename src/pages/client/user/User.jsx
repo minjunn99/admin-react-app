@@ -9,11 +9,12 @@ import {
     deleteDoc,
     getDocs,
 } from "firebase/firestore";
+import { deleteObject, ref } from "firebase/storage";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 // Import component
-import { db } from "../../../firebase/firebaseConfig";
+import { db, storage } from "../../../firebase/firebaseConfig";
 import { Loading } from "../../../components";
 
 const User = () => {
@@ -21,7 +22,7 @@ const User = () => {
 
     useEffect(() => {
         getUsers();
-    }, [users]);
+    }, []);
 
     const getUsers = async () => {
         const result = [];
@@ -37,7 +38,10 @@ const User = () => {
         setUsers(result);
     };
 
-    const handleClick = async (id) => {
+    const handleClick = async (user) => {
+        const { id, photoURL } = user;
+        const delRef = ref(storage, photoURL);
+        deleteObject(delRef);
         await deleteDoc(doc(db, "users", id));
         getUsers();
     };
@@ -120,7 +124,7 @@ const User = () => {
                                         </Link>
                                         <div
                                             className="table--button"
-                                            onClick={() => handleClick(user.id)}
+                                            onClick={() => handleClick(user)}
                                         >
                                             <RiDeleteBinLine />
                                         </div>

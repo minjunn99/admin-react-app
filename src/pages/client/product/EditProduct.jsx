@@ -105,6 +105,7 @@ const EditProduct = () => {
         };
 
         await setDoc(doc(db, "products", product.id), productObj);
+        localStorage.removeItem("product");
 
         navigate("/product");
     };

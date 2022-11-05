@@ -53,7 +53,6 @@ const EditUser = () => {
         const docData = docSnap.data();
 
         setUser({
-            id: id,
             ...docData,
         });
     }
