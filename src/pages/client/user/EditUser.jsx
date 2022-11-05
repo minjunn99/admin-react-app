@@ -1,9 +1,8 @@
 // Import library
 import React, { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { useParams } from "react-router-dom";
 import { v4 } from "uuid";
 import { MdAddPhotoAlternate } from "react-icons/md";
 
