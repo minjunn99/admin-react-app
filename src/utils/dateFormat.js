@@ -48,7 +48,7 @@ export default function dateFormat(timestamp) {
     const date = new Date(+timestamp);
 
     const day = date.getUTCDate();
-    const month = getMonthName(date.getMonth());
+    const month = getMonthName(date.getMonth() + 1);
     const year = date.getFullYear();
 
     const formatDate = `${month} ${day}, ${year}`;
