@@ -136,7 +136,8 @@ const AddProduct = () => {
         // Create product collection in firestore
         await addDoc(collection(db, "products"), {
             ...product,
-            category: categoryProduct[categoryIndex].category,
+            category: categoryProduct[categoryIndex].type,
+            slug: categoryProduct[categoryIndex].category,
         });
 
         // Navigate for product page
@@ -248,7 +249,7 @@ const AddProduct = () => {
                 <div className="fs-400" style={{ fontWeight: "700" }}>
                     Thông tin chi tiết
                 </div>
-                <div className="d-flex">
+                <div className="d-flex" style={{ flexWrap: "wrap" }}>
                     {categoryProduct.map((category, index) => (
                         <div
                             key={index}

@@ -18,9 +18,7 @@ const EditProduct = () => {
 
     const [error, setError] = useState("");
     const [product, setProduct] = useState();
-    const [details, setDetails] = useState();
     const [detailFields, setDetailFields] = useState();
-    const [skus, setSkus] = useState();
 
     const navigate = useNavigate();
 
@@ -45,22 +43,22 @@ const EditProduct = () => {
             id,
             ...docData,
         });
-        setDetails([...docData.detail]);
-        setSkus([...docData.skus]);
         const detailFieldRs = categoryProduct.find(
-            (value) => docData.category === value.category
+            (value) =>
+                docData.category === value.type &&
+                docData.slug === value.category
         );
         setDetailFields(detailFieldRs.detailFields);
     }
 
     function handleDetail(e, index) {
-        details[index][e.target.name] = e.target.value;
-        setDetails([...details]);
+        product.detail[index][e.target.name] = e.target.value;
+        setProduct({ ...product });
     }
 
     const handleSkus = (e, index) => {
-        skus[index][e.target.name] = e.target.value;
-        setSkus([...skus]);
+        product.skus[index][e.target.name] = e.target.value;
+        setProduct({ ...product });
     };
 
     const handleSubmit = async (e) => {
@@ -104,8 +102,9 @@ const EditProduct = () => {
             total: product.total,
         };
 
-        await setDoc(doc(db, "products", product.id), productObj);
-        localStorage.removeItem("product");
+        setDoc(doc(db, "products", product.id), productObj).then(() => {
+            localStorage.removeItem("product");
+        });
 
         navigate("/product");
     };
@@ -199,7 +198,7 @@ const EditProduct = () => {
                             type="text"
                             id={name}
                             name={name}
-                            value={details[index][name]}
+                            value={product.detail[index][name]}
                             onChange={(e) => handleDetail(e, index)}
                             placeholder=" "
                         />
@@ -212,7 +211,7 @@ const EditProduct = () => {
                 <div className="fs-400" style={{ fontWeight: "700" }}>
                     Thông tin thêm
                 </div>
-                {skus.map((sku, index) => (
+                {product.skus.map((sku, index) => (
                     <div className="d-flex" key={index}>
                         <div className="form--group" style={{ flex: 1 }}>
                             <input

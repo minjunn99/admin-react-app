@@ -6,5 +6,6 @@ export default function ProductConstructor() {
     this.cost = "";
     this.detail = [];
     this.total = 0;
+    this.slug = "";
     this.createdAt = "";
 }

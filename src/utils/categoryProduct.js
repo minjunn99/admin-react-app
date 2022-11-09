@@ -172,7 +172,7 @@ const categoryProduct = [
         ],
     },
     {
-        type: "Sạc dự phòng",
+        type: "sạc dự phòng",
         category: "phukien",
         detailFields: [
             {
@@ -222,7 +222,7 @@ const categoryProduct = [
         ],
     },
     {
-        type: "Tai nghe",
+        type: "tai nghe",
         category: "phukien",
         detailFields: [
             {
@@ -264,7 +264,7 @@ const categoryProduct = [
         ],
     },
     {
-        type: "Bàn phím",
+        type: "bàn phím",
         category: "phukien",
         detailFields: [
             {
@@ -294,7 +294,7 @@ const categoryProduct = [
         ],
     },
     {
-        type: "Chuột không dây",
+        type: "chuột máy tính",
         category: "phukien",
         detailFields: [
             {
@@ -312,10 +312,6 @@ const categoryProduct = [
             {
                 name: "wireconn",
                 label: "độ dài dây / khoảng cách kết nối",
-            },
-            {
-                name: "led_light",
-                label: "đèn LED",
             },
             {
                 name: "battery_type",
