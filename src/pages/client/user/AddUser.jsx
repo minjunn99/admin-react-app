@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { doc, setDoc } from "firebase/firestore";
+import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import { updateProfile } from "firebase/auth";
 import { v4 } from "uuid";
 import { MdAddPhotoAlternate } from "react-icons/md";
@@ -140,6 +140,13 @@ const AddUser = () => {
             // Create user collection in firestore
             await setDoc(doc(db, "users", res.user.uid), {
                 ...userObj,
+            });
+
+            // Create user cart collection in firestore
+            await addDoc(collection(db, "cart"), {
+                uid: res.user.uid,
+                products: [],
+                total: 0,
             });
         } catch {
             setError("Lỗi tạo tài khoản. Vui lòng thử lại!");
