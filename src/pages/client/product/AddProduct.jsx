@@ -136,8 +136,9 @@ const AddProduct = () => {
         // Create product collection in firestore
         await addDoc(collection(db, "products"), {
             ...product,
-            category: categoryProduct[categoryIndex].type,
-            slug: categoryProduct[categoryIndex].category,
+            category: categoryProduct[categoryIndex].category,
+            slug: categoryProduct[categoryIndex].slug,
+            categoryDetail: categoryProduct[categoryIndex].name,
         });
 
         // Navigate for product page
@@ -258,7 +259,7 @@ const AddProduct = () => {
                             }`}
                             onClick={() => handleCategory(index)}
                         >
-                            {category.type}
+                            {category.name}
                         </div>
                     ))}
                 </div>

@@ -1,7 +1,8 @@
 const categoryProduct = [
     {
-        type: "điện thoại",
+        name: "điện thoại",
         category: "dienthoai",
+        slug: "dienthoai",
         detailFields: [
             {
                 name: "screen",
@@ -42,8 +43,9 @@ const categoryProduct = [
         ],
     },
     {
-        type: "laptop",
+        name: "laptop",
         category: "laptop",
+        slug: "laptop",
         detailFields: [
             {
                 name: "cpu",
@@ -88,8 +90,9 @@ const categoryProduct = [
         ],
     },
     {
-        type: "tablet",
+        name: "tablet",
         category: "tablet",
+        slug: "tablet",
         detailFields: [
             {
                 name: "screen",
@@ -134,8 +137,9 @@ const categoryProduct = [
         ],
     },
     {
-        type: "đồng hồ",
+        name: "đồng hồ",
         category: "dongho",
+        slug: "dongho",
         detailFields: [
             {
                 name: "subject",
@@ -172,8 +176,9 @@ const categoryProduct = [
         ],
     },
     {
-        type: "sạc dự phòng",
+        name: "sạc dự phòng",
         category: "phukien",
+        slug: "sacduphong",
         detailFields: [
             {
                 name: "unless",
@@ -222,8 +227,9 @@ const categoryProduct = [
         ],
     },
     {
-        type: "tai nghe",
+        name: "tai nghe",
         category: "phukien",
+        slug: "tainghe",
         detailFields: [
             {
                 name: "earphone_time",
@@ -264,8 +270,9 @@ const categoryProduct = [
         ],
     },
     {
-        type: "bàn phím",
+        name: "bàn phím",
         category: "phukien",
+        slug: "banphim",
         detailFields: [
             {
                 name: "compatible",
@@ -294,8 +301,9 @@ const categoryProduct = [
         ],
     },
     {
-        type: "chuột máy tính",
+        name: "chuột máy tính",
         category: "phukien",
+        slug: "chuotmaytinh",
         detailFields: [
             {
                 name: "compatible",

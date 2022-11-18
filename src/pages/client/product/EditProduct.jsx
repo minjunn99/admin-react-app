@@ -45,8 +45,8 @@ const EditProduct = () => {
         });
         const detailFieldRs = categoryProduct.find(
             (value) =>
-                docData.category === value.type &&
-                docData.slug === value.category
+                docData.category === value.category &&
+                docData.slug === value.slug
         );
         setDetailFields(detailFieldRs.detailFields);
     }
