@@ -3,7 +3,7 @@ import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { BiHomeAlt } from "react-icons/bi";
 import { HiOutlineUsers } from "react-icons/hi";
-import { MdLogout } from "react-icons/md";
+import { MdLogout, MdOutlineShoppingCart } from "react-icons/md";
 import { RiShoppingBag3Line } from "react-icons/ri";
 
 // Import component
@@ -39,6 +39,11 @@ const Sidebar = () => {
                     <li className="sidebar--item">
                         <NavLink className="sidebar--link" to="/product">
                             <RiShoppingBag3Line />
+                        </NavLink>
+                    </li>
+                    <li className="sidebar--item">
+                        <NavLink className="sidebar--link" to="/order">
+                            <MdOutlineShoppingCart />
                         </NavLink>
                     </li>
                 </ul>

@@ -6,3 +6,4 @@ export { default as EditUser } from "./client/user/EditUser";
 export { default as Product } from "./client/product/Product";
 export { default as AddProduct } from "./client/product/AddProduct";
 export { default as EditProduct } from "./client/product/EditProduct";
+export { default as Order } from "./client/order/Order";

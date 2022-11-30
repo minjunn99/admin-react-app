@@ -19,6 +19,7 @@ import {
     Product,
     AddProduct,
     EditProduct,
+    Order,
 } from "./pages";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
                                 path="/edit_product/:productId"
                                 element={<EditProduct />}
                             />
+                            <Route path="/order" element={<Order />} />
                         </Route>
                     </Route>
                     <Route element={<AuthRoutes />}>
