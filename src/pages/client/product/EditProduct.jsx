@@ -1,6 +1,6 @@
 // Import library
 import React, { useEffect, useState, useRef } from "react";
-import { getDoc, doc, setDoc } from "firebase/firestore";
+import { getDoc, doc, updateDoc } from "firebase/firestore";
 import { useParams, useNavigate } from "react-router-dom";
 
 // Import component
@@ -102,7 +102,7 @@ const EditProduct = () => {
             total: product.total,
         };
 
-        setDoc(doc(db, "products", product.id), productObj).then(() => {
+        updateDoc(doc(db, "products", product.id), productObj).then(() => {
             localStorage.removeItem("product");
         });
 
