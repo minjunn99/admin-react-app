@@ -44,6 +44,61 @@ function getMonthName(month) {
     return name;
 }
 
+function getMonthVal(month) {
+    let value = 0;
+    switch (month) {
+        case "Jan":
+            value = 1;
+            break;
+        case "Feb":
+            value = 2;
+            break;
+        case "Mar":
+            value = 3;
+            break;
+        case "Apr":
+            value = 4;
+            break;
+        case "May":
+            value = 5;
+            break;
+        case "Jun":
+            value = 6;
+            break;
+        case "Jul":
+            value = 7;
+            break;
+        case "Aug":
+            value = 8;
+            break;
+        case "Sep":
+            value = 9;
+            break;
+        case "Oct":
+            value = 10;
+            break;
+        case "Nov":
+            value = 11;
+            break;
+        case "Dec":
+            value = 12;
+            break;
+        default:
+            value = 0;
+    }
+
+    return value;
+}
+
+export function dateToTimestamp(date) {
+    const dateArr = date.replaceAll(",", "").split(" ");
+    dateArr[0] = getMonthVal(dateArr[0]);
+    const dateFormatRs = `${dateArr[2]}-${dateArr[0]}-${dateArr[1]}`;
+    const timestamp = new Date(dateFormatRs).valueOf();
+
+    return timestamp;
+}
+
 export default function dateFormat(timestamp) {
     const date = new Date(+timestamp);
 
